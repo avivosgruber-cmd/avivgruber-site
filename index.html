@@ -128,6 +128,26 @@ mark{background:var(--mark);color:inherit;padding:.04em .16em;border-radius:2px;
 .masthead a.tel{font-family:"IBM Plex Mono",monospace;font-size:.95rem;text-decoration:none;border-block-end:1.5px solid var(--accent);padding-block-end:2px;color:var(--ink);direction:ltr;unicode-bidi:isolate}
 .masthead a.tel:hover{color:var(--accent)}
 
+/* section nav */
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+section[id],#contact{scroll-margin-block-start:118px}
+.secnav{
+  position:sticky;top:61px;z-index:35;background:color-mix(in srgb,var(--paper) 94%,transparent);
+  backdrop-filter:blur(10px);border-block-end:1px solid var(--rule);
+}
+.secnav .wrap{display:flex;gap:8px;overflow-x:auto;padding-block:9px;scrollbar-width:none}
+.secnav .wrap::-webkit-scrollbar{display:none}
+.secnav a{
+  flex:0 0 auto;text-decoration:none;font-size:.9rem;font-weight:600;color:var(--ink-2);
+  padding:6px 14px;border:1px solid var(--rule);border-radius:99px;white-space:nowrap;
+  transition:background .14s ease,color .14s ease,border-color .14s ease;
+}
+.secnav a:hover{border-color:var(--accent);color:var(--accent)}
+.secnav a.on{background:var(--accent-wash);border-color:color-mix(in srgb,var(--accent) 40%,transparent);color:var(--accent-deep)}
+.secnav a:focus-visible{outline:2.5px solid var(--warm);outline-offset:2px}
+@media (max-width:640px){.secnav{top:56px}section[id],#contact{scroll-margin-block-start:104px}}
+
 /* hero */
 .hero{position:relative;overflow:hidden}
 .hero::before{
@@ -374,6 +394,17 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space
     </div>
   </header>
 
+  <nav class="secnav" aria-label="ניווט בין חלקי העמוד">
+    <div class="wrap">
+      <a href="#solve">שיעור לדוגמה</a>
+      <a href="#feel">איך זה מרגיש</a>
+      <a href="#team">הצוות</a>
+      <a href="#reviews">ביקורות</a>
+      <a href="#faq">שאלות</a>
+      <a href="#contact">יצירת קשר</a>
+    </div>
+  </nav>
+
   <div class="hero">
     <div class="wrap">
       <div class="hero-inner">
@@ -415,7 +446,7 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space
     </div>
   </div>
 
-  <section class="band">
+  <section id="solve" class="band">
     <div class="wrap">
       <span class="eyebrow">01 · שיעור קטן לדוגמה</span>
       <h2>בואו נעבור על שאלה יחד, ממש כמו בשיעור</h2>
@@ -488,7 +519,7 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space
     </div>
   </section>
 
-  <section class="band rule-top">
+  <section id="feel" class="band rule-top">
     <div class="wrap">
       <span class="eyebrow">02 · איך זה מרגיש</span>
       <h2>מה הופך שיעור למקום שנעים לחזור אליו</h2>
@@ -532,7 +563,7 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space
     </div>
   </div>
 
-  <section class="band">
+  <section id="team" class="band">
     <div class="wrap">
       <span class="eyebrow">03 · הצוות</span>
       <h2>בית ספר אינטימי, שבו כל תלמיד מקבל מורה קבוע משלו</h2>
@@ -563,7 +594,7 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space
     </div>
   </section>
 
-  <section class="band rule-top">
+  <section id="reviews" class="band rule-top">
     <div class="wrap">
       <span class="eyebrow">04 · מה אומרים עלינו</span>
       <h2>142 ביקורות מתלמידים ומהורים</h2>
@@ -659,7 +690,7 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space
     </div>
   </section>
 
-  <section class="band rule-top">
+  <section id="faq" class="band rule-top">
     <div class="wrap">
       <span class="eyebrow">05 · שאלות</span>
       <h2>מה ששואלים אותנו בשיחה הראשונה</h2>
@@ -765,6 +796,26 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space
 <script>
 document.documentElement.setAttribute("dir","rtl");
 document.documentElement.setAttribute("lang","he");
+
+/* highlight the section you are looking at */
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll(".secnav a"));
+  if (!links.length || !("IntersectionObserver" in window)) return;
+  var map = {};
+  links.forEach(function (a) {
+    var el = document.querySelector(a.getAttribute("href"));
+    if (el) map[el.id] = a;
+  });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        links.forEach(function (a) { a.classList.remove("on"); });
+        if (map[e.target.id]) map[e.target.id].classList.add("on");
+      }
+    });
+  }, { rootMargin: "-130px 0px -55% 0px" });
+  Object.keys(map).forEach(function (id) { io.observe(document.getElementById(id)); });
+})();
 
 /* seamless review marquee: duplicate the set once so -50% wraps perfectly */
 (function () {
