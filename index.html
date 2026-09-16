@@ -1,0 +1,883 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="שיעורים פרטיים במתמטיקה אונליין לכיתות ז׳ עד י״ב, 3, 4 ו־5 יחידות והכנה לבגרות. אביב גרובר, 15 שנות הוראה, 5.0 בגוגל. שיחת היכרות ללא התחייבות.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://avivgruber.co.il/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<meta property="og:site_name" content="אביב גרובר, בית ספר למתמטיקה">
+<meta property="og:title" content="מתמטיקה עם אביב גרובר">
+<meta property="og:description" content="שיעורים פרטיים במתמטיקה אונליין, כיתות ז׳ עד י״ב. 15 שנות הוראה, 5.0 בגוגל מתוך 42 ביקורות.">
+<meta property="og:url" content="https://avivgruber.co.il/">
+<meta property="og:image" content="https://avivgruber.co.il/aviv.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 55 34'%3E%3Cg fill='none' stroke='%231B7F73'%3E%3Crect x='.5' y='.5' width='54' height='33' stroke-width='1.6' opacity='.45'/%3E%3Cpath d='M0 34A34 34 0 0 1 34 0A21 21 0 0 1 55 21A13 13 0 0 1 42 34A8 8 0 0 1 34 26A5 5 0 0 1 39 21A3 3 0 0 1 42 24' stroke-width='3'/%3E%3C/g%3E%3Ccircle cx='40.6' cy='23.1' r='2.6' fill='%23C98A28'/%3E%3C/svg%3E">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>מתמטיקה עם אביב גרובר</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Assistant:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#F9F8F4;
+  --surface:#FFFFFF;
+  --ink:#222C38;
+  --ink-2:#56636F;
+  --ink-3:#6E7A87;
+  --on-accent:#FFFFFF;
+  --rule:#E5E2DA;
+  --rule-soft:#F1EFE8;
+  --accent:#1B7F73;
+  --accent-deep:#12655B;
+  --accent-wash:#E6F2EF;
+  --warm:#C98A28;
+  --mark:#FAEBBE;
+  --tint-1:#E7F2EF;
+  --tint-2:#FBEEDE;
+  --tint-3:#E9EEF8;
+  --tint-4:#F3ECF6;
+  --tint-5:#EEF4E7;
+  --grid:rgba(34,44,56,.05);
+  --wa:#128C43;
+  --measure:64ch;
+}
+:root:not([data-theme="light"]){
+  @media (prefers-color-scheme:dark){
+    --paper:#14191F;
+    --surface:#1B212A;
+    --ink:#ECEFF2;
+    --ink-2:#AEB8C3;
+    --ink-3:#95A0AB;
+    --on-accent:#0E1419;
+    --rule:#2B333D;
+    --rule-soft:#222932;
+    --accent:#4ABAA9;
+    --accent-deep:#8EDCCF;
+    --accent-wash:#14302C;
+    --warm:#E4B45E;
+    --mark:rgba(228,180,94,.24);
+    --tint-1:#16302C;
+    --tint-2:#2E2519;
+    --tint-3:#1A2331;
+    --tint-4:#261E2E;
+    --tint-5:#1D2A1C;
+    --grid:rgba(236,239,242,.05);
+    --wa:#3CC46E;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#14191F;
+  --surface:#1B212A;
+  --ink:#ECEFF2;
+  --ink-2:#AEB8C3;
+  --ink-3:#95A0AB;
+  --on-accent:#0E1419;
+  --rule:#2B333D;
+  --rule-soft:#222932;
+  --accent:#4ABAA9;
+  --accent-deep:#8EDCCF;
+  --accent-wash:#14302C;
+  --warm:#E4B45E;
+  --mark:rgba(228,180,94,.24);
+  --tint-1:#16302C;
+  --tint-2:#2E2519;
+  --tint-3:#1A2331;
+  --tint-4:#261E2E;
+  --tint-5:#1D2A1C;
+  --grid:rgba(236,239,242,.05);
+  --wa:#3CC46E;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:"Assistant","Helvetica Neue",Arial,sans-serif;
+  font-size:17.5px;line-height:1.72;-webkit-font-smoothing:antialiased;
+}
+.doc{direction:rtl;text-align:right}
+h1,h2,h3{margin:0;text-wrap:balance;letter-spacing:-.012em;font-family:"Frank Ruhl Libre",Georgia,serif}
+h1{font-size:clamp(2rem,5.6vw,3.3rem);line-height:1.2;font-weight:700}
+h2{font-size:clamp(1.45rem,3.3vw,2.05rem);line-height:1.26;font-weight:700}
+h3{font-size:1.06rem;line-height:1.45;font-weight:700;font-family:"Assistant",sans-serif}
+p{margin:0}
+a{color:inherit}
+mark{background:var(--mark);color:inherit;padding:.04em .16em;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:22px}
+.band{padding-block:clamp(46px,7vw,82px)}
+.rule-top{border-block-start:1px solid var(--rule)}
+.eyebrow{
+  font-family:"Assistant",sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.05em;
+  color:var(--accent);display:flex;align-items:center;gap:10px;margin-block-end:14px;
+}
+.eyebrow::after{content:"";height:1px;flex:1;background:var(--rule);max-width:90px}
+
+/* masthead */
+.masthead{border-block-end:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:40}
+.masthead .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:13px}
+.logo{display:flex;align-items:center;gap:11px}
+.emblem{width:56px;height:35.6px;flex:0 0 56px;color:var(--accent);display:block}
+.emblem .apex{fill:var(--warm)}
+.logo .wordmark{font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:1.18rem;letter-spacing:-.015em;line-height:1.15;display:block}
+.logo .sub{font-family:"Assistant",sans-serif;font-size:.76rem;letter-spacing:.02em;color:var(--ink-3);display:block;margin-block-start:2px}
+.masthead a.tel{font-family:"IBM Plex Mono",monospace;font-size:.95rem;text-decoration:none;border-block-end:1.5px solid var(--accent);padding-block-end:2px;color:var(--ink);direction:ltr;unicode-bidi:isolate}
+.masthead a.tel:hover{color:var(--accent)}
+
+/* hero */
+.hero{position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:26px 26px;
+  -webkit-mask-image:linear-gradient(to bottom left,#000 0%,transparent 58%);
+  mask-image:linear-gradient(to bottom left,#000 0%,transparent 58%);
+}
+.hero .wrap{position:relative;padding-block:clamp(42px,6.5vw,78px) clamp(30px,5vw,52px)}
+.hero-inner{max-width:var(--measure);display:flex;flex-direction:column;gap:20px}
+.kicker{font-family:"Assistant",sans-serif;font-size:.86rem;letter-spacing:0;color:var(--ink-3);display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.kicker .est{color:var(--warm);border:1px solid color-mix(in srgb,var(--warm) 45%,transparent);border-radius:99px;padding:2px 12px;font-weight:600;letter-spacing:0}
+.lede{font-size:clamp(1.05rem,2vw,1.22rem);color:var(--ink-2);max-width:58ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-block-start:6px}
+.byline{display:flex;align-items:center;gap:14px;margin-block-start:2px}
+.byline .pic{
+  width:64px;height:64px;flex:0 0 64px;border-radius:50%;overflow:hidden;
+  box-shadow:0 0 0 1px var(--rule),0 0 0 5px var(--tint-1);
+}
+.byline .pic img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92)}
+.byline .bt{display:flex;flex-direction:column;line-height:1.4}
+.byline .bt b{font-size:1rem}
+.byline .bt span{font-size:.88rem;color:var(--ink-3)}
+.member .av.photo{padding:0;overflow:hidden;box-shadow:0 0 0 1px var(--rule)}
+.member .av.photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92)}
+.trustrow{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;font-size:.88rem;color:var(--ink-3);margin-block-start:4px}
+.trustrow span{display:inline-flex;align-items:center;gap:7px}
+.trustrow .tick{color:var(--accent);font-size:1rem;line-height:1}
+.trustrow .g{color:var(--warm);letter-spacing:.06em}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:14px 26px;border:1.5px solid var(--accent);border-radius:3px;
+  font-family:"Assistant",sans-serif;font-weight:700;font-size:1.04rem;
+  text-decoration:none;cursor:pointer;white-space:nowrap;background:transparent;color:var(--accent);
+  transition:background .14s ease,color .14s ease,border-color .14s ease;
+}
+.btn svg{width:18px;height:18px;flex:0 0 18px}
+.btn-primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-primary:hover{background:var(--accent-deep);border-color:var(--accent-deep);color:var(--on-accent)}
+.btn-ghost{border-color:var(--rule);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--wa);color:var(--wa);background:color-mix(in srgb,var(--wa) 8%,transparent)}
+.btn-ghost svg{fill:var(--wa)}
+.btn:focus-visible{outline:2.5px solid var(--warm);outline-offset:3px}
+
+/* ledger */
+.ledger{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;border-block:1px solid var(--rule);align-items:center}
+.ledger div{padding:18px 8px;border-inline-start:1px solid var(--rule-soft)}
+.ledger div:first-child{border-inline-start:0;background:var(--tint-1);padding-inline:16px}
+.ledger b{display:block;font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:clamp(1.35rem,3vw,1.8rem);line-height:1.1;font-variant-numeric:tabular-nums}
+.ledger div:first-child b{font-size:clamp(2.1rem,5.4vw,3rem);color:var(--accent-deep);letter-spacing:-.02em}
+.ledger div:first-child span{font-size:.86rem;color:var(--ink-2)}
+.ledger span{display:block;font-size:.8rem;color:var(--ink-3);line-height:1.35;margin-block-start:4px}
+.ledger em{font-style:normal;color:var(--warm)}
+
+/* worked solution */
+.solve{background:var(--surface);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.solve-head{padding:20px clamp(18px,3vw,30px);border-block-end:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;justify-content:space-between;background:var(--tint-1)}
+.solve-head .q{font-family:"Assistant",sans-serif;font-size:.84rem;letter-spacing:0;color:var(--ink-3)}
+.problem{padding:22px clamp(18px,3vw,30px);border-block-end:1px solid var(--rule-soft);display:flex;flex-direction:column;gap:10px}
+.mathline{font-family:"Frank Ruhl Libre",Georgia,serif;font-size:clamp(1.15rem,2.6vw,1.5rem);line-height:1.5;direction:ltr;text-align:left;font-variant-numeric:lining-nums tabular-nums}
+.mathline i{font-style:italic}
+.ask{color:var(--ink-2);font-size:1rem}
+.stage{display:grid;grid-template-columns:1fr 300px}
+.stepcol{border-inline-start:1px solid var(--rule-soft);min-width:0}
+.step{display:grid;grid-template-columns:34px 1fr;gap:0 14px;align-items:start;padding:17px clamp(18px,3vw,30px);border-block-end:1px solid var(--rule-soft)}
+.step:last-child{border-block-end:0}
+.step[hidden]{display:none}
+.step.reveal{animation:stepIn .4s cubic-bezier(.2,.7,.3,1) both}
+@keyframes stepIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.step .n{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--accent);border:1px solid var(--accent);width:26px;height:26px;display:grid;place-items:center;border-radius:50%;margin-block-start:3px}
+.step .body{display:flex;flex-direction:column;gap:7px;min-width:0}
+.step .body .mathline{font-size:clamp(1.02rem,2.2vw,1.22rem);overflow-x:auto;padding-block-end:2px}
+.note{font-size:.93rem;color:var(--accent-deep);line-height:1.6;border-inline-start:2px solid var(--accent);padding-inline-start:11px}
+.step.answer{background:var(--accent-wash)}
+.step.answer .n{background:var(--accent);color:var(--on-accent)}
+.solve-foot{padding:15px clamp(18px,3vw,30px);border-block-start:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.solve-foot .progress{font-family:"Assistant",sans-serif;font-size:.9rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.minibtn{font-family:"Assistant",sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;background:transparent;border:1.5px solid var(--accent);color:var(--accent);border-radius:3px;padding:9px 18px}
+.minibtn:hover{background:var(--accent);color:var(--on-accent)}
+.minibtn[disabled]{opacity:.4;cursor:default}
+.minibtn[disabled]:hover{background:transparent;color:var(--accent)}
+.minibtn.plain{border-color:transparent;color:var(--ink-3);text-decoration:underline;text-underline-offset:4px;padding-inline:4px}
+.minibtn.plain:hover{background:transparent;color:var(--accent)}
+.minibtn:focus-visible{outline:2.5px solid var(--warm);outline-offset:2px}
+.plot{padding:18px;display:flex;flex-direction:column;gap:8px}
+.plot canvas{width:100%;height:auto;display:block;max-width:100%}
+.plot .cap{font-size:.82rem;color:var(--ink-3);line-height:1.5}
+
+/* reasons */
+.reasons{display:flex;flex-direction:column;border-block-start:1px solid var(--rule)}
+.reason{display:grid;grid-template-columns:58px 1fr;gap:0 22px;padding-block:26px;border-block-end:1px solid var(--rule);align-items:start}
+.reason .rn{
+  font-family:"Frank Ruhl Libre",serif;font-size:1.15rem;font-weight:700;color:var(--accent-deep);
+  width:42px;height:42px;display:grid;place-items:center;border-radius:50%;
+}
+.reason:nth-child(1) .rn{background:var(--tint-1)}
+.reason:nth-child(2) .rn{background:var(--tint-2)}
+.reason:nth-child(3) .rn{background:var(--tint-3)}
+.reason:nth-child(4) .rn{background:var(--tint-4)}
+.reason .rb{display:flex;flex-direction:column;gap:8px;max-width:var(--measure)}
+.reason p{color:var(--ink-2)}
+
+/* team */
+.team{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-block-start:26px}
+.member{border:1px solid var(--rule);border-radius:4px;padding:24px 22px;display:flex;flex-direction:column;gap:10px}
+.member:nth-child(1){background:var(--tint-1)}
+.member:nth-child(2){background:var(--tint-3)}
+.member:nth-child(3){background:var(--tint-2)}
+.member .who{display:flex;align-items:center;gap:12px}
+.member .av{
+  width:46px;height:46px;flex:0 0 46px;border-radius:50%;background:var(--surface);
+  display:grid;place-items:center;font-family:"Frank Ruhl Libre",serif;font-size:1.25rem;font-weight:700;color:var(--accent-deep);
+}
+.member .nm{display:flex;flex-direction:column;line-height:1.3}
+.member .nm b{font-size:1.06rem}
+.member .nm span{font-size:.85rem;color:var(--ink-3)}
+.member p{color:var(--ink-2);font-size:.98rem}
+
+/* review marquee */
+.marquee{position:relative;overflow:hidden;direction:ltr;padding-block:6px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
+.track{display:flex;align-items:flex-start;gap:16px;width:max-content;animation:slide 185s linear infinite}
+.marquee:hover .track,.marquee:focus-within .track{animation-play-state:paused}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.rcard{
+  direction:rtl;text-align:right;flex:0 0 auto;width:min(390px,82vw);
+  background:var(--surface);border:1px solid var(--rule);border-radius:4px;
+  padding:22px 22px 18px;display:flex;flex-direction:column;gap:12px;
+}
+.rcard:nth-child(5n+1){background:var(--tint-1)}
+.rcard:nth-child(5n+2){background:var(--tint-2)}
+.rcard:nth-child(5n+3){background:var(--tint-3)}
+.rcard:nth-child(5n+4){background:var(--tint-4)}
+.rcard:nth-child(5n+5){background:var(--tint-5)}
+.rcard .stars{color:var(--warm);letter-spacing:.09em;font-size:.92rem}
+.rcard q{font-family:"Frank Ruhl Libre",serif;font-size:1.01rem;line-height:1.62;quotes:none;display:block}
+.sourcelinks{display:flex;flex-wrap:wrap;gap:10px 22px;margin-block-start:22px;font-size:.93rem}
+.sourcelinks a{color:var(--accent);text-decoration:none;border-block-end:1.5px solid color-mix(in srgb,var(--accent) 40%,transparent);padding-block-end:2px}
+.sourcelinks a:hover{border-block-end-color:var(--accent)}
+.sourcelinks a:focus-visible{outline:2.5px solid var(--warm);outline-offset:3px}
+.rcard q p{margin-block:0 .55em}
+.rcard q p:last-child{margin-block-end:0}
+
+/* editorial pull quote */
+.pull{border-block:1px solid var(--rule);background:var(--tint-1)}
+.pull .wrap{padding-block:clamp(40px,6vw,66px);display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.pull blockquote{
+  margin:0;max-width:24ch;font-family:"Frank Ruhl Libre",serif;font-weight:500;
+  font-size:clamp(1.5rem,4.4vw,2.6rem);line-height:1.34;letter-spacing:-.015em;
+}
+.pull blockquote i{font-style:normal;color:var(--accent-deep)}
+.pull .attrib{font-family:"Assistant",sans-serif;font-weight:600;font-size:.86rem;letter-spacing:0;color:var(--ink-3)}
+.rcard .by{display:flex;flex-wrap:wrap;gap:6px 9px;align-items:baseline;font-size:.84rem;color:var(--ink-3);margin-block-start:auto}
+.rcard .by b{color:var(--ink);font-size:.92rem}
+.rsrc{font-family:"Assistant",sans-serif;font-weight:600;font-size:.74rem;letter-spacing:0;color:var(--ink-3);border:1px solid var(--rule);border-radius:99px;padding:1px 8px}
+
+/* faq */
+.faq{max-width:var(--measure);border-block-start:1px solid var(--rule)}
+details{border-block-end:1px solid var(--rule)}
+summary{cursor:pointer;list-style:none;padding-block:17px;font-weight:700;font-size:1.04rem;display:flex;align-items:center;justify-content:space-between;gap:14px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:"IBM Plex Mono",monospace;color:var(--accent);font-size:1.15rem;flex:0 0 auto}
+details[open] summary::after{content:"–"}
+details .ans{padding-block-end:20px;color:var(--ink-2);font-size:1rem;max-width:62ch}
+summary:focus-visible{outline:2.5px solid var(--warm);outline-offset:2px}
+
+/* contact */
+.contact .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start}
+form{display:flex;flex-direction:column;gap:14px;max-width:44ch}
+.field{display:flex;flex-direction:column;gap:6px}
+label{font-family:"Assistant",sans-serif;font-weight:600;font-size:.84rem;letter-spacing:0;color:var(--ink-3)}
+input,select,textarea{font-family:inherit;font-size:1rem;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:12px 14px;width:100%}
+textarea{resize:vertical;min-height:88px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:0;border-color:var(--accent)}
+.form-note{font-size:.85rem;color:var(--ink-3)}
+.sidefacts{display:flex;flex-direction:column;border-block-start:1px solid var(--rule)}
+.sidefacts .f{display:grid;grid-template-columns:92px 1fr;gap:16px;padding-block:15px;border-block-end:1px solid var(--rule-soft);align-items:baseline}
+.sidefacts .f dt{font-family:"Assistant",sans-serif;font-weight:600;font-size:.84rem;letter-spacing:0;color:var(--ink-3);margin:0}
+.sidefacts .f dd{margin:0;color:var(--ink-2);font-size:.99rem}
+.sidefacts .f dd b{color:var(--ink)}
+.telbig{font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:clamp(1.65rem,4.4vw,2.3rem);text-decoration:none;display:inline-block;margin-block-start:20px;color:var(--accent);border-block-end:2.5px solid var(--warm);padding-block-end:3px;direction:ltr}
+.telbig:hover{color:var(--accent-deep)}
+
+footer.site{padding-block:28px 100px;color:var(--ink-3);font-size:.86rem;border-block-start:1px solid var(--rule)}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+
+/* sticky mobile */
+.stickybar{position:fixed;inset-inline:0;inset-block-end:0;z-index:50;display:none;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--paper) 95%,transparent);backdrop-filter:blur(10px);border-block-start:1px solid var(--rule)}
+.stickybar .btn{flex:1;padding:13px 8px;font-size:1rem}
+
+@media (max-width:960px){
+  .stage{grid-template-columns:1fr}
+  .stepcol{border-inline-start:0}
+  .plot{border-block-start:1px solid var(--rule-soft);order:-1}
+  .contact .wrap{grid-template-columns:1fr;gap:38px}
+  .team{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  body{font-size:16.5px}
+  .ledger div{padding-inline:3px}
+  .ledger b{font-size:1.28rem}
+  .ledger span{font-size:.72rem}
+  .reason{grid-template-columns:1fr;gap:10px}
+  .step{grid-template-columns:26px 1fr;gap:0 11px;padding-inline:16px}
+  .stickybar{display:flex}
+  .masthead a.tel{display:none}
+  .track{animation-duration:130s}
+  .ledger{grid-template-columns:1fr 1fr}
+  .ledger div:first-child{grid-column:1 / -1;text-align:center}
+  .ledger div:nth-child(2){border-inline-start:0}
+  .ledger div:nth-child(2),.ledger div:nth-child(3){border-block-end:1px solid var(--rule-soft)}
+  .ledger div:nth-child(4){grid-column:1 / -1;border-inline-start:0;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+  .track{animation:none;width:auto}
+  .marquee{overflow-x:auto}
+}
+</style>
+
+<div class="doc" lang="he">
+
+  <header class="masthead">
+    <div class="wrap">
+      <div class="logo">
+        <svg class="emblem" viewBox="-1.5 -1.5 58 37" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="1" opacity=".45">
+            <rect x="0" y="0" width="55" height="34"/>
+            <path d="M34 0V34M34 21H55M42 21V34M34 26H42M39 21V26"/>
+          </g>
+          <path d="M0 34A34 34 0 0 1 34 0A21 21 0 0 1 55 21A13 13 0 0 1 42 34A8 8 0 0 1 34 26A5 5 0 0 1 39 21A3 3 0 0 1 42 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <circle class="apex" cx="40.6" cy="23.1" r="1.9"/>
+        </svg>
+        <span>
+          <span class="wordmark">אביב גרובר</span>
+          <span class="sub">בית ספר למתמטיקה</span>
+        </span>
+      </div>
+      <a class="tel" href="tel:+972544641024">054&thinsp;464&thinsp;1024</a>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <span class="kicker"><span class="est">מלמדים מאז 2011</span><span>כיתות ז׳ עד י״ב · 3, 4 ו־5 יחידות · אונליין בזום</span></span>
+        <h1>אצלנו מותר לא להבין, <mark>ובדיוק משם מתחילים</mark></h1>
+        <p class="lede">שלום, אני אביב. אני מלמד מתמטיקה כבר חמש עשרה שנה, לימדתי בהן מאות תלמידים, ולאורך הדרך הקמתי צוות מורים שעובד בשיטה אחת. הרבה מהתלמידים מגיעים אלינו אחרי תקופה שבה איבדו קצת את הביטחון במקצוע, ולפעמים גם את החשק. אצלנו זה עובד אחרת. מדברים בגובה העיניים, שואלים כל שאלה בלי להתבייש, וצוחקים בדרך. מסתבר שכשנעים בשיעור גם לומדים הרבה יותר מהר.</p>
+        <div class="byline">
+          <span class="pic"><img src="aviv.jpg" alt="אביב גרובר" width="720" height="720" loading="eager"></span>
+          <span class="bt">
+            <b>אביב גרובר</b>
+            <span>מייסד ומנהל מקצועי · פסיכולוג קליני בהתמחות</span>
+          </span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="tel:+972544641024">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.3 21 3 12.7 3 2.5c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+            בואו נדבר
+          </a>
+          <a class="btn btn-ghost" href="https://wa.me/972544641024?text=%D7%94%D7%99%D7%99%20%D7%90%D7%91%D7%99%D7%91%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.2 14.8l-.3-.2-2.5.7.7-2.4-.2-.3A8 8 0 0 1 12 4zm-3.3 4c-.2 0-.5.1-.7.4-.2.3-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.6 4 3.5 2 .8 2.4.6 2.8.6.4 0 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.6-.3c-.2-.1-1.3-.7-1.5-.7-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5s0-.4-.1-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.3z"/></svg>
+            וואטסאפ
+          </a>
+        </div>
+        <p class="trustrow">
+          <span><span class="g">★</span> 141 ביקורות, 5.0 בגוגל</span>
+          <span><span class="tick">✓</span> שיחת היכרות ללא התחייבות</span>
+          <span><span class="tick">✓</span> מורה קבוע אחד לכל תלמיד</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="ledger">
+      <div><b>141</b><span>ביקורות מתלמידים ומהורים</span></div>
+      <div><b>5.0<em>★</em></b><span>בגוגל, 42 ביקורות</span></div>
+      <div><b>9.9</b><span>בלימוד נעים, 99 מדרגים</span></div>
+      <div><b>15</b><span>שנות הוראה</span></div>
+    </div>
+  </div>
+
+  <section class="band">
+    <div class="wrap">
+      <span class="eyebrow">01 · שיעור קטן לדוגמה</span>
+      <h2>בואו נעבור על שאלה יחד, ממש כמו בשיעור</h2>
+      <p class="lede" style="margin-block:12px 26px">זו שאלה קלאסית מבגרות ב־4 ו־5 יחידות. לחצו על הצעדים ותראו איך זה נראה. בצד כתוב מה שאני באמת אומר תוך כדי, כי החשבון הוא החלק הקל, וההיגיון מאחוריו הוא מה שנשאר לכם בראש.</p>
+
+      <div class="solve">
+        <div class="solve-head">
+          <h3>חקירת פונקציה, מציאת נקודות קיצון</h3>
+          <span class="q">בגרות · 4 ו־5 יחידות</span>
+        </div>
+
+        <div class="problem">
+          <p class="mathline">f(<i>x</i>) = <i>x</i>³ &minus; 3<i>x</i>² &minus; 9<i>x</i> + 5</p>
+          <p class="ask">מצאו את נקודות הקיצון של הפונקציה וקבעו את סוגן.</p>
+        </div>
+
+        <div class="stage">
+          <div class="stepcol" id="steps">
+            <div class="step">
+              <span class="n">1</span>
+              <div class="body">
+                <p class="mathline">f′(<i>x</i>) = 3<i>x</i>² &minus; 6<i>x</i> &minus; 9</p>
+                <p class="note">הנגזרת היא פשוט השיפוע. נקודת קיצון היא הרגע שבו הגרף מפסיק לעלות ומתחיל לרדת, כלומר השיפוע שם אפס. זהו, זה כל הרעיון. כל השאר הוא חשבון.</p>
+              </div>
+            </div>
+            <div class="step" hidden>
+              <span class="n">2</span>
+              <div class="body">
+                <p class="mathline">3(<i>x</i> &minus; 3)(<i>x</i> + 1) = 0 &nbsp;⟸&nbsp; <i>x</i>₁ = &minus;1 , <i>x</i>₂ = 3</p>
+                <p class="note">מוציאים 3 ומפרקים לגורמים במקום לרוץ לנוסחת השורשים. כשהפירוק יוצא נקי זה מהיר יותר, וגם חוסך טעויות סימן כשהלב פועם לפני מבחן.</p>
+              </div>
+            </div>
+            <div class="step" hidden>
+              <span class="n">3</span>
+              <div class="body">
+                <p class="mathline">f(&minus;1) = 10 &nbsp;·&nbsp; f(3) = &minus;22</p>
+                <p class="note">מציבים בפונקציה המקורית, לא בנגזרת. כמעט כולם נופלים בזה פעם אחת, ואחרי שנופלים כבר לא שוכחים. עדיף שזה יקרה אצלנו בשיעור ולא בבגרות.</p>
+              </div>
+            </div>
+            <div class="step" hidden>
+              <span class="n">4</span>
+              <div class="body">
+                <p class="mathline">f″(<i>x</i>) = 6<i>x</i> &minus; 6 &nbsp;·&nbsp; f″(&minus;1) = &minus;12 &nbsp;·&nbsp; f″(3) = 12</p>
+                <p class="note">הנגזרת השנייה אומרת לנו איזה סוג קיצון זה. שלילית פירושה שהגרף מתעגל כלפי מטה, כלומר מקסימום. חיובית פירושה מינימום. בלי טבלת סימנים ובלי לשנן.</p>
+              </div>
+            </div>
+            <div class="step answer" hidden>
+              <span class="n">✓</span>
+              <div class="body">
+                <p class="mathline">(&minus;1 , 10) מקסימום &nbsp;·&nbsp; (3 , &minus;22) מינימום</p>
+                <p class="note">שתי שורות של תשובה, ארבעה צעדים של חשיבה. ברגע שההיגיון הזה יושב, כל שאלה מהמשפחה הזאת נפתרת באותה דרך, ופתאום זה נהיה כיף.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="plot">
+            <canvas id="graph" width="600" height="460" role="img" aria-label="גרף הפונקציה עם נקודת מקסימום במינוס אחת פסיק עשר ונקודת מינימום בשלוש פסיק מינוס עשרים ושתיים"></canvas>
+            <p class="cap">הגרף משורטט מהפונקציה עצמה. הנקודות נדלקות עליו ברגע שמגיעים אליהן בפתרון.</p>
+          </div>
+        </div>
+
+        <div class="solve-foot">
+          <span class="progress" id="prog">צעד 1 מתוך 5</span>
+          <span style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <button class="minibtn plain" id="reset" type="button">מהתחלה</button>
+            <button class="minibtn" id="next" type="button">הצעד הבא</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band rule-top">
+    <div class="wrap">
+      <span class="eyebrow">02 · איך זה מרגיש</span>
+      <h2>מה הופך שיעור למקום שנעים לחזור אליו</h2>
+      <div class="reasons" style="margin-block-start:22px">
+        <article class="reason">
+          <span class="rn">א</span>
+          <div class="rb">
+            <h3>מדברים בגובה העיניים</h3>
+            <p>אנחנו לא עומדים מעל אף אחד ולא מדברים בשפה של ספר לימוד. אפשר לשאול אותנו אותה שאלה שלוש פעמים, אפשר להגיד באמצע שלא הבנת כלום, ואפשר גם לצחוק תוך כדי. תלמידים אומרים לי שזה השיעור היחיד בשבוע שהם לא מתחילים להילחץ לפניו, וזו בעיניי המחמאה הכי גדולה.</p>
+          </div>
+        </article>
+        <article class="reason">
+          <span class="rn">ב</span>
+          <div class="rb">
+            <h3>מתחילים מהמקום שבו זה נשבר</h3>
+            <p>כשתלמיד בכיתה י״א לא מסתדר עם טריגונומטריה, הרבה פעמים הבעיה האמיתית יושבת במשוואות מכיתה ט׳. אין טעם ללמד את החומר הנוכחי בלי לחזור לשם. השיעור הראשון הוא גם היכרות וגם מיפוי, ומתוכו אנחנו בונים סדר עבודה שאומר בדיוק מה עושים ומתי.</p>
+          </div>
+        </article>
+        <article class="reason">
+          <span class="rn">ג</span>
+          <div class="rb">
+            <h3>מבדילים בין לא מבין לבין לא מצליח</h3>
+            <p>אני פסיכולוג קליני בהתמחות, ואני לא מביא את זה לשיעור כדי לטפל באף אחד. אני מביא את זה כדי לזהות מתי תלמיד תקוע בגלל פער בחומר, מתי בגלל לחץ ממבחנים, ומתי בגלל משהו שהוא סיפר לעצמו לפני שלוש שנים על זה שהוא לא בנוי למתמטיקה. אלו שלושה דברים שונים, ולכל אחד יש דרך אחרת.</p>
+          </div>
+        </article>
+        <article class="reason">
+          <span class="rn">ד</span>
+          <div class="rb">
+            <h3>ההורים בתמונה, בלי לחקור בארוחת ערב</h3>
+            <p>אחת לכמה שיעורים אנחנו שולחים עדכון קצר על מה עשינו, מה השתפר ומה עדיין פתוח. ככה ההורים יודעים בדיוק איפה הדברים עומדים, והתלמיד לא מרגיש שעוקבים אחריו. בדרך כלל זה מוריד את המתח בבית בערך כמו שזה מוריד אותו בשיעור.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="pull">
+    <div class="wrap">
+      <blockquote>"אביב באמת יודע להעביר את החומר, <i>והאווירה מאוד נעימה</i> בשיעורים."</blockquote>
+      <span class="attrib">רן, תלמיד · ביקורת באתר לימוד נעים</span>
+    </div>
+  </div>
+
+  <section class="band">
+    <div class="wrap">
+      <span class="eyebrow">03 · הצוות</span>
+      <h2>בית ספר אינטימי, שבו כל תלמיד מקבל מורה קבוע משלו</h2>
+      <p class="lede" style="margin-block:12px 0">אנחנו לא מרכז גדול שמעביר תלמידים בין מורים מתחלפים. אני מלווה כל תלמיד שנכנס, מתאים לו את המורה הנכון מתוך הצוות, ומשם הם נשארים יחד לאורך הדרך.</p>
+      <div class="team">
+        <article class="member">
+          <div class="who">
+            <span class="av photo"><img src="aviv.jpg" alt="אביב גרובר" width="720" height="720" loading="lazy"></span>
+            <span class="nm"><b>אביב גרובר</b><span>מייסד ומנהל מקצועי</span></span>
+          </div>
+          <p>חמש עשרה שנות הוראה, כיתות ז׳ עד י״ב בכל הרמות. בוגר 5 יחידות מתמטיקה בהצטיינות, פסיכולוג קליני בהתמחות, ובוגר תואר ראשון בפסיכולוגיה ופילוסופיה באוניברסיטת תל אביב. אני בונה את השיטה, מלמד בעצמי, ומכיר כל תלמיד בשם.</p>
+        </article>
+        <article class="member">
+          <div class="who">
+            <span class="av" aria-hidden="true">ע</span>
+            <span class="nm"><b>עומרי בן חמו</b><span>מנהל צוות המורים</span></span>
+          </div>
+          <p>מנהל איתי את צוות המורים ומלמד מתמטיקה ופיזיקה. בוגר הנדסה אזרחית, ומביא איתו את הצד המעשי של המקצוע, זה שמראה לתלמידים איפה החומר הזה חי מחוץ למחברת.</p>
+        </article>
+        <article class="member">
+          <div class="who">
+            <span class="av" aria-hidden="true">צ</span>
+            <span class="nm"><b>צוות המורים</b><span>מלמדים בשיטה אחת</span></span>
+          </div>
+          <p>כל מורה שמצטרף עובר אצלנו תהליך קליטה, ומלמד לפי אותה שיטה ואותה רוח. ככה ההבדל בין מורה למורה הוא בעיקר של אופי, ולא של רמה, וההורים יודעים בדיוק מה מקבלים.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band rule-top">
+    <div class="wrap">
+      <span class="eyebrow">04 · מה אומרים עלינו</span>
+      <h2>141 ביקורות מתלמידים ומהורים</h2>
+      <p class="lede" style="margin-block:12px 24px">42 ביקורות בגוגל בדירוג מושלם של 5.0, ועוד 99 מדרגים באתר לימוד נעים בדירוג 9.9. הכול פתוח לקריאה במקור.</p>
+    </div>
+
+    <div class="marquee" aria-label="ביקורות של תלמידים והורים">
+      <div class="track" id="track">
+        <!-- cards are cloned once by script for a seamless loop -->
+        <figure class="rcard">
+          <span class="stars" aria-label="חמישה כוכבים">★★★★★</span>
+          <q><p>אני רוצה להמליץ בחום על אביב! הילד שלי, עמית, בן 14, לומד איתו כבר מעל שנה, והתוצאות מדהימות. אביב מצליח להקנות לילד שלי מוטיבציה ללמוד ולתפוס את החומר בצורה מעניינת, ברורה וסבלנית. הוא יודע איך לגשת לשיעור בצורה שמחברת את הילד לחומר.</p><p>עמית הגיע לשיעורים עם חשש בהתחלה, אבל מהר מאוד הוא התחיל ליהנות ולראות שיפור אמיתי. השיעור עובר בכיף, בנעימות ובשיא המקצועיות. ממליצה לכל מי שמחפש מורה מסור, מקצועי וקשוב לצרכים של הילד.</p></q>
+          <figcaption class="by"><b>ליאת</b><span>אמא לעמית</span><span class="rsrc">גוגל</span></figcaption>
+        </figure>
+        <figure class="rcard">
+          <span class="stars" aria-label="חמישה כוכבים">★★★★★</span>
+          <q><p>אביב גרובר הוא מורה למתמטיקה מסור, קשוב ורגיש. הוא עשה תהליך יוצא דופן עם בתי וסייע לה להשלים פערים ולהצליח מאוד במתמטיקה, והכין אותה באופן מיטבי לבגרות, ואף גרם לה לאהוב מאוד את המקצוע!</p></q>
+          <figcaption class="by"><b>מירב</b><span>אמא לתלמידה</span><span class="rsrc">גוגל</span></figcaption>
+        </figure>
+        <figure class="rcard">
+          <span class="stars" aria-label="חמישה כוכבים">★★★★★</span>
+          <q><p>אביב הוא המורה למתמטיקה הכי טוב שהיה לי. הפסדתי שנה שלמה בלימודים והוא עזר לי להשלים אותה בממש מעט זמן. הוא תמיד שם בשבילי לכל שאלה ולכל דבר שאני צריכה, זה באמת הכי כיף בעולם.</p></q>
+          <figcaption class="by"><b>עמליה</b><span>תלמידה</span><span class="rsrc">לימוד נעים</span></figcaption>
+        </figure>
+        <figure class="rcard">
+          <span class="stars" aria-label="חמישה כוכבים">★★★★★</span>
+          <q><p>המלצה חמה על אביבוש המושלם! כבר קרוב לעשור שאביב מלווה את ילדיי, מהגדול ועד הקטן, בלימודי המתמטיקה. אביב מורה סופר מקצועי, סבלני, ובעל יכולת נדירה לגשת לכל תלמיד בגובה העיניים, לזהות את הצרכים שלו ולחזק אותו בדיוק במקום הנכון.</p><p>בזכות אביב, הילדים לא רק שיפרו את ההבנה והציונים שלהם, אלא גם פיתחו ביטחון עצמי ותחושת מסוגלות במקצוע בפרט ובחיים בכלל. אביב מצליח להביא את האישיות המיוחדת שלו, ועל ידי כך להפוך את המקצוע לנגיש, ברור ולעיתים אפילו מהנה, וזה לא מובן מאליו.</p></q>
+          <figcaption class="by"><b>ריבי</b><span>אמא לשלושה תלמידים</span><span class="rsrc">גוגל</span></figcaption>
+        </figure>
+        <figure class="rcard">
+          <span class="stars" aria-label="חמישה כוכבים">★★★★★</span>
+          <q><p>אביב לימד אותי כמה שנים טובות, והוא לא רק מורה מדהים. הוא בנאדם עם סבלנות, אכפתיות ורוגע שמצליחים לגרום גם לנושאים הכי מאתגרים להרגיש פתירים. העובדה שהיה לו אכפת מההצלחה שלי נתנה לי המון ביטחון ללמוד ולהתקדם.</p><p>האמין בי כשאני לא האמנתי, והצליח ללמד בדרך שגרמה אפילו לי ליהנות מהמתמטיקה, שזה לא מובן מאליו בכלל. תודה אביב!</p></q>
+          <figcaption class="by"><b>נויה</b><span>תלמידה</span><span class="rsrc">גוגל</span></figcaption>
+        </figure>
+        <figure class="rcard">
+          <span class="stars" aria-label="חמישה כוכבים">★★★★★</span>
+          <q><p>אין מורים כאלה. יחס אישי הכי טוב שיש, סבלנות, סובלנות, ומקצועיות מהשורה הראשונה. מאחל לכל אחד מורה ואדם כזה שינחה אותו, וכל מי שיבחר באביב יזכה. הרבה מעבר למורה!</p></q>
+          <figcaption class="by"><b>עידן</b><span>תלמיד</span><span class="rsrc">גוגל</span></figcaption>
+        </figure>
+        <figure class="rcard">
+          <span class="stars" aria-label="חמישה כוכבים">★★★★★</span>
+          <q><p>אני לומדת אצל אביב כבר בערך ארבע שנים, אפשר להבין כבר מזה כמה אני מרוצה ממנו. מלמד הכול בדרך הכי טובה שיש, ומתאים את עצמו אלייך. ממליצה מאוד!</p></q>
+          <figcaption class="by"><b>מיקה</b><span>תלמידה</span><span class="rsrc">גוגל</span></figcaption>
+        </figure>
+        <figure class="rcard">
+          <span class="stars" aria-label="חמישה כוכבים">★★★★★</span>
+          <q><p>אם היו שואלים אותי מי הוא המורה הכי טוב שהיה לי, הייתי אומר אביב. אביב הוא מורה מצוין, הוא מסביר את החומר הנלמד בצורה מובנת ופשוטה, עוזר בתרגול בצורה מצוינת, ודוחף את התלמיד להישגים שהתלמיד יכול רק לחלום עליהם. ממליץ בחום.</p></q>
+          <figcaption class="by"><b>ג׳יימי</b><span>תלמיד</span><span class="rsrc">גוגל</span></figcaption>
+        </figure>
+        <figure class="rcard">
+          <span class="stars" aria-label="חמישה כוכבים">★★★★★</span>
+          <q><p>אביב מורה מדהים! למדתי אצלו שנה. מורה סבלני, נחמד, חברותי ובעל היכולת להסביר ולהעביר את החומר באופן מקצועי ומעולה. ממליץ מאוד לכולם.</p></q>
+          <figcaption class="by"><b>גיל</b><span>תלמיד</span><span class="rsrc">גוגל</span></figcaption>
+        </figure>
+        <figure class="rcard">
+          <span class="stars" aria-label="חמישה כוכבים">★★★★★</span>
+          <q><p>אני מאוד מרוצה מהשיעורים עם אביב. הוא לא המורה הפרטי הראשון שלי, ואני מרגיש שאביב באמת יודע להעביר את החומר בצורה מאוד טובה, והאווירה מאוד נעימה בשיעורים.</p></q>
+          <figcaption class="by"><b>רן</b><span>תלמיד</span><span class="rsrc">לימוד נעים</span></figcaption>
+        </figure>
+        <figure class="rcard">
+          <span class="stars" aria-label="חמישה כוכבים">★★★★★</span>
+          <q><p>אביב מורה מעולה. מאז שאני לומדת איתו אני הרבה פחות לחוצה לפני מבחנים, ומגיעה לשיעורים ממש בטוחה עם החומר.</p></q>
+          <figcaption class="by"><b>דניאלה</b><span>תלמידה</span><span class="rsrc">לימוד נעים</span></figcaption>
+        </figure>
+        <figure class="rcard">
+          <span class="stars" aria-label="חמישה כוכבים">★★★★★</span>
+          <q><p>אביב מורה נהדר. השיעורים מעולים, עוזרים, כיפים, פתוחים ומצחיקים, והוא תמיד שם כשצריך. הוא בן אדם מאוד נחמד, סבלני ואחראי. ממליץ בחום לכל מי שמחפש מורה.</p></q>
+          <figcaption class="by"><b>שרוו</b><span>תלמיד</span><span class="rsrc">לימוד נעים</span></figcaption>
+        </figure>
+        <figure class="rcard">
+          <span class="stars" aria-label="חמישה כוכבים">★★★★★</span>
+          <q><p>אביב מורה מצוין, מסביר את החומר מעולה וכיף בחברתו. אנחנו כבר דורות אצל אביב, אחי הגדול, אני, ואחי הקטן, כולנו מרוצים מאוד, והציונים שלנו ממש השתפרו מאז שאנחנו עם אביב. כיף שיש אותו.</p></q>
+          <figcaption class="by"><b>רוני</b><span>תלמיד</span><span class="rsrc">לימוד נעים</span></figcaption>
+        </figure>
+        <figure class="rcard">
+          <span class="stars" aria-label="חמישה כוכבים">★★★★★</span>
+          <q><p>אביב מורה מעולה, אני מאוד מרוצה מהשיעורים איתו. הוא מלמד ממש טוב, נחמד, מעודד אותך כל הזמן להצליח, ומסביר כמה פעמים עד שתבין. מורה ממש ממש טוב, ממליצה.</p></q>
+          <figcaption class="by"><b>אריאל</b><span>תלמידה</span><span class="rsrc">לימוד נעים</span></figcaption>
+        </figure>
+        <figure class="rcard">
+          <span class="stars" aria-label="חמישה כוכבים">★★★★★</span>
+          <q><p>אביב היקר, מורה מעולה, רגיש, מקצועי, מביא להישגים ותוצאות בטווח קצר. מומלץ ביותר.</p></q>
+          <figcaption class="by"><b>ליאת</b><span>הורה</span><span class="rsrc">לימוד נעים</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <p class="sourcelinks">
+        <a href="https://www.google.com/maps/place/%D7%90%D7%91%D7%99%D7%91+%D7%92%D7%A8%D7%95%D7%91%D7%A8-+%D7%91%D7%99%D7%AA+%D7%A1%D7%A4%D7%A8+%D7%9C%D7%9E%D7%AA%D7%9E%D7%98%D7%99%D7%A7%D7%94+%D7%90%D7%95%D7%A0%D7%9C%D7%99%D7%99%D7%9F/@32.0939289,34.7852745,17z/data=!4m8!3m7!1s0x151d4b122d5a007d:0x1e61d385989d69a7!8m2!3d32.0939289!4d34.7852745!9m1!1b1!16s%2Fg%2F11x5p8ctjr" target="_blank" rel="noopener">כל 42 הביקורות בגוגל</a>
+        <a href="https://www.limudnaim.co.il/%D7%9E%D7%95%D7%A8%D7%94-%D7%A4%D7%A8%D7%98%D7%99-%D7%90%D7%95%D7%A0%D7%9C%D7%99%D7%99%D7%9F/%D7%90%D7%91%D7%99%D7%91-%D7%92%D7%A8%D7%95%D7%91%D7%A8" target="_blank" rel="noopener">הפרופיל שלנו בלימוד נעים</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="band rule-top">
+    <div class="wrap">
+      <span class="eyebrow">05 · שאלות</span>
+      <h2>מה ששואלים אותנו בשיחה הראשונה</h2>
+      <div class="faq" style="margin-block-start:22px">
+        <details open>
+          <summary>אני ממש שונא מתמטיקה. זה בכלל יעזור?</summary>
+          <div class="ans">כמעט כל מי שמגיע אלינו אומר את המשפט הזה בשיחה הראשונה. ברוב המקרים זו לא שנאה למתמטיקה אלא שנאה לתחושה של לשבת בשיעור ולא להבין. ברגע שמתחילים להבין, התחושה הזאת מתחלפת, ואז מגלים שזה אפילו די מספק. אני לא מבטיח שתתאהבו, אבל אני כן מבטיח שתפסיקו לפחד מזה.</div>
+        </details>
+        <details>
+          <summary>שיעור אונליין באמת עובד במתמטיקה?</summary>
+          <div class="ans">כן, ובמתמטיקה במיוחד. השיעורים מתקיימים בזום עם לוח דיגיטלי משותף שרואים וכותבים עליו ביחד, וכל מה שנכתב בשיעור נשמר וזמין לחזרה לפני המבחן. בשיעור פרונטלי המחברת נסגרת ונעלמת. חוץ מזה נחסכות הנסיעות, בדיוק בשעות שממילא הכי עמוסות.</div>
+        </details>
+        <details>
+          <summary>כמה שיעורים צריך כדי לראות שינוי?</summary>
+          <div class="ans">תלוי בגודל הפער ובזמן שנשאר עד המבחן, ולכן אנחנו לא נוקבים במספר לפני שראינו את התלמיד. בשיעור ההיכרות אתם מקבלים הערכה כנה, גם כשהתשובה היא שצריך יותר ממה שקיוויתם לשמוע.</div>
+        </details>
+        <details>
+          <summary>אפשר להתחיל באמצע השנה או ממש לפני הבגרות?</summary>
+          <div class="ans">בהחלט, וזה רוב הפניות שאנחנו מקבלים. לקראת בגרות או מועד ב׳ עוברים לעבודה ממוקדת על שאלוני עבר ועל הנושאים שמניבים הכי הרבה נקודות ביחס לזמן שנותר.</div>
+        </details>
+        <details>
+          <summary>הבן שלי כבר החליף שני מורים ושום דבר לא עזר.</summary>
+          <div class="ans">זה מקרה מוכר וזה כמעט תמיד פתיר. כשמחליפים מורים ושום דבר לא זז, בדרך כלל אף אחד לא חזר מספיק אחורה כדי למצוא איפה נשבר הרצף, או שהקושי בכלל לא נמצא בחומר. בשיחה הראשונה אני שואל כמה שאלות שנועדו לבדוק את שתי האפשרויות, ואם אני חושב שאנחנו לא הכתובת הנכונה אני אומר את זה בפה מלא.</div>
+        </details>
+        <details>
+          <summary>אנחנו לא בתל אביב, זה משנה?</summary>
+          <div class="ans">בכלל לא. כל השיעורים מתקיימים אונליין ואנחנו מלמדים תלמידים מכל הארץ.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="band rule-top contact" id="contact">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">06 · נעים להכיר</span>
+        <h2>נדבר כמה דקות ונראה אם זה מתאים</h2>
+        <p class="lede" style="margin-block:12px 24px">השיחה הראשונה היא היכרות, לא מכירה. תספרו לי מה קורה, אני אגיד לכם בכנות מה אני חושב, וגם אם התשובה היא שמישהו אחר מתאים יותר, אני אומר את זה.</p>
+        <form id="lead-form">
+          <div class="field">
+            <label for="f-name">שם</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="שם ההורה או התלמיד" required>
+          </div>
+          <div class="field">
+            <label for="f-grade">כיתה ורמה</label>
+            <select id="f-grade" name="grade">
+              <option>כיתות ז׳ עד ט׳</option>
+              <option>כיתה י׳, 3 יחידות</option>
+              <option>כיתה י׳, 4 יחידות</option>
+              <option>כיתה י׳, 5 יחידות</option>
+              <option>כיתה י״א, 4 יחידות</option>
+              <option>כיתה י״א, 5 יחידות</option>
+              <option selected>כיתה י״ב, הכנה לבגרות</option>
+              <option>מועד ב׳</option>
+              <option>עדיין לא יודעים</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-msg">מה קורה כרגע</label>
+            <textarea id="f-msg" name="msg" placeholder="למשל: נכשל במתכונת, רוצה לעלות ל־5 יחידות, איבד את החוט בטריגונומטריה"></textarea>
+          </div>
+          <button class="btn btn-ghost" type="submit" style="align-self:flex-start">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.2 14.8l-.3-.2-2.5.7.7-2.4-.2-.3A8 8 0 0 1 12 4zm-3.3 4c-.2 0-.5.1-.7.4-.2.3-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.6 4 3.5 2 .8 2.4.6 2.8.6.4 0 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.6-.3c-.2-.1-1.3-.7-1.5-.7-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5s0-.4-.1-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.3z"/></svg>
+            שליחה בוואטסאפ
+          </button>
+          <p class="form-note">הכפתור פותח וואטסאפ עם הפרטים כבר כתובים. אין צורך להקליד שוב.</p>
+        </form>
+      </div>
+
+      <div>
+        <dl class="sidefacts">
+          <div class="f"><dt>טלפון</dt><dd><b>054-464-1024</b><br>עונים גם בשעות הערב</dd></div>
+          <div class="f"><dt>איך</dt><dd>שיעורים אונליין בזום, לכל הארץ</dd></div>
+          <div class="f"><dt>מקצוע</dt><dd>מתמטיקה, כיתות ז׳ עד י״ב</dd></div>
+          <div class="f"><dt>רמות</dt><dd>3, 4 ו־5 יחידות, כולל הכנה לבגרות</dd></div>
+          <div class="f"><dt>צוות</dt><dd>אביב גרובר ועומרי בן חמו</dd></div>
+        </dl>
+        <a class="telbig" href="tel:+972544641024">054 464 1024</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site">
+    <div class="wrap">
+      <span>אביב גרובר · בית ספר למתמטיקה אונליין</span>
+      <span>054-464-1024</span>
+    </div>
+  </footer>
+
+  <nav class="stickybar" aria-label="פעולות מהירות">
+    <a class="btn btn-primary" href="tel:+972544641024">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.3 21 3 12.7 3 2.5c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+      התקשרו
+    </a>
+    <a class="btn btn-ghost" href="https://wa.me/972544641024?text=%D7%94%D7%99%D7%99%20%D7%90%D7%91%D7%99%D7%91%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.2 14.8l-.3-.2-2.5.7.7-2.4-.2-.3A8 8 0 0 1 12 4zm-3.3 4c-.2 0-.5.1-.7.4-.2.3-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.6 4 3.5 2 .8 2.4.6 2.8.6.4 0 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.6-.3c-.2-.1-1.3-.7-1.5-.7-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5s0-.4-.1-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.3z"/></svg>
+      וואטסאפ
+    </a>
+  </nav>
+
+</div>
+
+<script>
+document.documentElement.setAttribute("dir","rtl");
+document.documentElement.setAttribute("lang","he");
+
+/* seamless review marquee: duplicate the set once so -50% wraps perfectly */
+(function () {
+  var track = document.getElementById("track");
+  if (!track) return;
+  var originals = Array.prototype.slice.call(track.children);
+  originals.forEach(function (c) {
+    var clone = c.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    track.appendChild(clone);
+  });
+})();
+
+/* worked solution stepper + graph */
+(function () {
+  var steps = Array.prototype.slice.call(document.querySelectorAll("#steps .step"));
+  var next = document.getElementById("next");
+  var reset = document.getElementById("reset");
+  var prog = document.getElementById("prog");
+  var shown = 1;
+
+  function render() {
+    steps.forEach(function (s, i) {
+      s.hidden = i >= shown;
+      s.classList.toggle("reveal", i === shown - 1);
+    });
+    prog.textContent = "צעד " + shown + " מתוך " + steps.length;
+    next.disabled = shown >= steps.length;
+    next.textContent = shown >= steps.length ? "זה הפתרון המלא" : "הצעד הבא";
+    draw();
+  }
+  next.addEventListener("click", function () { if (shown < steps.length) { shown++; render(); } });
+  reset.addEventListener("click", function () { shown = 1; render(); });
+
+  var cv = document.getElementById("graph");
+  var ctx = cv.getContext("2d");
+  function css(n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+  function f(x) { return x * x * x - 3 * x * x - 9 * x + 5; }
+
+  function draw() {
+    var ratio = window.devicePixelRatio || 1;
+    var w = cv.clientWidth || 600;
+    var h = Math.round(w * 460 / 600);
+    cv.width = w * ratio; cv.height = h * ratio;
+    cv.style.height = h + "px";
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+
+    var ink = css("--ink"), soft = css("--ink-3"), acc = css("--accent"), rule = css("--rule-soft");
+    var padL = 34, padR = 16, padT = 16, padB = 26;
+    var xMin = -3.2, xMax = 5.4, yMin = -30, yMax = 22;
+    var X = function (x) { return padL + (x - xMin) / (xMax - xMin) * (w - padL - padR); };
+    var Y = function (y) { return padT + (yMax - y) / (yMax - yMin) * (h - padT - padB); };
+
+    ctx.strokeStyle = rule; ctx.lineWidth = 1;
+    for (var gx = -3; gx <= 5; gx++) { ctx.beginPath(); ctx.moveTo(X(gx), padT); ctx.lineTo(X(gx), h - padB); ctx.stroke(); }
+    for (var gy = -30; gy <= 20; gy += 10) { ctx.beginPath(); ctx.moveTo(padL, Y(gy)); ctx.lineTo(w - padR, Y(gy)); ctx.stroke(); }
+
+    ctx.strokeStyle = soft; ctx.lineWidth = 1.25;
+    ctx.beginPath(); ctx.moveTo(padL, Y(0)); ctx.lineTo(w - padR, Y(0)); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(X(0), padT); ctx.lineTo(X(0), h - padB); ctx.stroke();
+
+    ctx.fillStyle = soft;
+    ctx.font = "11px 'IBM Plex Mono', monospace";
+    ctx.textAlign = "center"; ctx.textBaseline = "top";
+    [-2, 2, 4].forEach(function (t) { ctx.fillText(String(t), X(t), Y(0) + 5); });
+    ctx.textAlign = "right"; ctx.textBaseline = "middle";
+    [-20, -10, 10, 20].forEach(function (t) { ctx.fillText(String(t), padL - 6, Y(t)); });
+
+    ctx.strokeStyle = ink; ctx.lineWidth = 2; ctx.beginPath();
+    for (var i = 0; i <= 600; i++) {
+      var x = xMin + (xMax - xMin) * i / 600, y = f(x);
+      if (y < yMin - 6 || y > yMax + 6) { ctx.moveTo(X(x), Y(Math.max(yMin - 6, Math.min(yMax + 6, y)))); continue; }
+      if (i === 0) ctx.moveTo(X(x), Y(y)); else ctx.lineTo(X(x), Y(y));
+    }
+    ctx.stroke();
+
+    if (shown >= 3) {
+      var pts = [[-1, 10, "(−1, 10)"], [3, -22, "(3, −22)"]];
+      ctx.fillStyle = acc; ctx.strokeStyle = acc;
+      ctx.font = "12px 'IBM Plex Mono', monospace";
+      ctx.textAlign = "left";
+      pts.forEach(function (p) {
+        ctx.beginPath(); ctx.arc(X(p[0]), Y(p[1]), 4.5, 0, Math.PI * 2); ctx.fill();
+        ctx.setLineDash([3, 3]); ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(X(p[0]), Y(p[1])); ctx.lineTo(X(p[0]), Y(0)); ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.textBaseline = p[1] > 0 ? "bottom" : "top";
+        ctx.fillText(p[2], X(p[0]) + 8, Y(p[1]) + (p[1] > 0 ? -7 : 9));
+      });
+    }
+  }
+
+  var mq = window.matchMedia("(prefers-color-scheme: dark)");
+  if (mq.addEventListener) mq.addEventListener("change", draw);
+  window.addEventListener("resize", function () { clearTimeout(window.__rz); window.__rz = setTimeout(draw, 140); });
+
+  render();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+})();
+
+document.getElementById("lead-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var name = document.getElementById("f-name").value.trim();
+  var grade = document.getElementById("f-grade").value;
+  var msg = document.getElementById("f-msg").value.trim();
+  var text = "היי אביב, הגעתי מהאתר.\n" +
+             "שם: " + (name || "לא צוין") + "\n" +
+             "כיתה ורמה: " + grade +
+             (msg ? "\nמה קורה: " + msg : "");
+  window.open("https://wa.me/972544641024?text=" + encodeURIComponent(text), "_blank", "noopener");
+});
+</script>
+
+</body>
+</html>
