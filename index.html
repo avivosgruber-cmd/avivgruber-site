@@ -137,42 +137,36 @@ section[id],#contact{scroll-margin-block-start:118px}
   background:color-mix(in srgb,var(--paper) 94%,transparent);
   backdrop-filter:blur(10px);border-block-end:1px solid var(--rule);
 }
-.secnav .wrap{display:flex;overflow-x:auto;padding:0 22px;scrollbar-width:none;position:relative}
+.secnav .wrap{display:flex;align-items:center;overflow-x:auto;padding:0 22px;scrollbar-width:none;position:relative}
 .secnav .wrap::-webkit-scrollbar{display:none}
 .secnav a{
-  flex:0 0 auto;position:relative;display:flex;align-items:baseline;gap:8px;
-  text-decoration:none;white-space:nowrap;
-  font-size:.93rem;font-weight:600;color:var(--ink-2);
-  padding:13px 18px;border-inline-start:1px solid var(--rule-soft);
-  transition:color .16s ease;
+  position:relative;flex:0 0 auto;text-decoration:none;white-space:nowrap;
+  font-family:"Frank Ruhl Libre",Georgia,serif;font-size:1.04rem;font-weight:500;
+  color:var(--ink-2);padding:13px 17px;
+  background-image:linear-gradient(var(--mark),var(--mark));
+  background-repeat:no-repeat;background-position:right 52%;background-size:0% 1.1em;
+  transition:background-size .3s cubic-bezier(.2,.7,.3,1),color .18s ease;
 }
-.secnav a:first-child{border-inline-start:0;padding-inline-start:0}
-.secnav a .n{
-  font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.06em;
-  color:var(--ink-3);transition:color .16s ease;
+.secnav a::before{
+  content:"";position:absolute;inset-inline-start:-2px;top:50%;transform:translateY(-50%);
+  width:3px;height:3px;border-radius:50%;background:var(--warm);opacity:.55;
 }
-.secnav a::after{
-  content:"";position:absolute;inset-inline:16px;inset-block-end:0;height:2px;
-  background:var(--accent);transform:scaleX(0);transform-origin:right;
-  transition:transform .24s cubic-bezier(.2,.7,.3,1);
-}
-.secnav a:first-child::after{inset-inline-start:16px;inset-inline-end:0}
-.secnav a:hover{color:var(--ink)}
-.secnav a:hover .n{color:var(--accent)}
-.secnav a.on{color:var(--ink);font-weight:700}
-.secnav a.on .n{color:var(--accent)}
-.secnav a.on::after{transform:scaleX(1)}
-.secnav a:focus-visible{outline:2.5px solid var(--warm);outline-offset:-3px;border-radius:2px}
+.secnav a:first-child{padding-inline-start:0}
+.secnav a:first-child::before{display:none}
+.secnav a:hover{color:var(--ink);background-size:calc(100% - 22px) 1.1em}
+.secnav a.on{color:var(--ink);font-weight:700;background-size:calc(100% - 22px) 1.1em}
+.secnav a:focus-visible{outline:2.5px solid var(--warm);outline-offset:-4px;border-radius:3px}
 .secnav .prog{
-  position:absolute;inset-inline-start:0;inset-block-end:-1px;height:2px;width:0;
-  background:var(--warm);opacity:.85;pointer-events:none;
+  position:absolute;inset-inline-start:0;inset-block-end:-1px;height:1.5px;width:0;
+  background:var(--warm);opacity:.6;pointer-events:none;
 }
-@media (prefers-reduced-motion:reduce){.secnav a::after{transition:none}}
+@media (prefers-reduced-motion:reduce){.secnav a{transition:none}}
 @media (max-width:640px){
   .secnav{top:56px}
   section[id],#contact{scroll-margin-block-start:104px}
   .secnav .wrap{padding-inline:18px}
-  .secnav a{font-size:.88rem;padding:12px 14px}
+  .secnav a{font-size:.98rem;padding:12px 13px}
+}
 }
 
 /* hero */
@@ -423,12 +417,12 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space
 
   <nav class="secnav" aria-label="ניווט בין חלקי העמוד">
     <div class="wrap">
-      <a href="#solve"><span class="n">01</span>שיעור לדוגמה</a>
-      <a href="#feel"><span class="n">02</span>איך זה מרגיש</a>
-      <a href="#team"><span class="n">03</span>הצוות</a>
-      <a href="#reviews"><span class="n">04</span>ביקורות</a>
-      <a href="#faq"><span class="n">05</span>שאלות</a>
-      <a href="#contact"><span class="n">06</span>יצירת קשר</a>
+      <a href="#solve">שיעור לדוגמה</a>
+      <a href="#feel">איך זה מרגיש</a>
+      <a href="#team">הצוות</a>
+      <a href="#reviews">ביקורות</a>
+      <a href="#faq">שאלות</a>
+      <a href="#contact">יצירת קשר</a>
       <span class="prog" aria-hidden="true"></span>
     </div>
   </nav>
