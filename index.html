@@ -355,6 +355,10 @@ input,select,textarea{font-family:inherit;font-size:1rem;color:var(--ink);backgr
 textarea{resize:vertical;min-height:88px}
 input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:0;border-color:var(--accent)}
 .form-note{font-size:.85rem;color:var(--ink-3)}
+.form-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.form-note.ok{color:var(--accent-deep);font-weight:600;font-size:1rem}
+.form-note.err{color:#B3261E}
+#lead-form.sent .field,#lead-form.sent .form-actions{display:none}
 .sidefacts{display:flex;flex-direction:column;border-block-start:1px solid var(--rule)}
 .sidefacts .f{display:grid;grid-template-columns:92px 1fr;gap:16px;padding-block:15px;border-block-end:1px solid var(--rule-soft);align-items:baseline}
 .sidefacts .f dt{font-family:"Assistant",sans-serif;font-weight:600;font-size:.84rem;letter-spacing:0;color:var(--ink-3);margin:0}
@@ -765,6 +769,10 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space
             <input id="f-name" name="name" type="text" autocomplete="name" placeholder="שם ההורה או התלמיד" required>
           </div>
           <div class="field">
+            <label for="f-phone">טלפון</label>
+            <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" placeholder="050-000-0000" required pattern="[0-9+\-\s()]{9,}">
+          </div>
+          <div class="field">
             <label for="f-grade">כיתה ורמה</label>
             <select id="f-grade" name="grade">
               <option>כיתות ז׳ עד ט׳</option>
@@ -782,17 +790,21 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space
             <label for="f-msg">מה קורה כרגע</label>
             <textarea id="f-msg" name="msg" placeholder="למשל: נכשל במתכונת, רוצה לעלות ל־5 יחידות, איבד את החוט בטריגונומטריה"></textarea>
           </div>
-          <button class="btn btn-ghost" type="submit" style="align-self:flex-start">
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;padding:0;margin:-1px">
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit" id="f-send">השאירו פרטים ונחזור אליכם</button>
+            <button class="btn btn-ghost" type="button" id="f-wa">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.2 14.8l-.3-.2-2.5.7.7-2.4-.2-.3A8 8 0 0 1 12 4zm-3.3 4c-.2 0-.5.1-.7.4-.2.3-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.6 4 3.5 2 .8 2.4.6 2.8.6.4 0 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.6-.3c-.2-.1-1.3-.7-1.5-.7-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5s0-.4-.1-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.3z"/></svg>
-            שליחה בוואטסאפ
-          </button>
-          <p class="form-note">הכפתור פותח וואטסאפ עם הפרטים כבר כתובים. אין צורך להקליד שוב.</p>
+            או בוואטסאפ
+            </button>
+          </div>
+          <p class="form-note" id="f-status" role="status" aria-live="polite">נחזור אליכם בהקדם, בשעות הפעילות בין 10:00 ל־19:00.</p>
         </form>
       </div>
 
       <div>
         <dl class="sidefacts">
-          <div class="f"><dt>טלפון</dt><dd><b>054-464-1024</b><br>עונים גם בשעות הערב</dd></div>
+          <div class="f"><dt>טלפון</dt><dd><b>054-464-1024</b><br>זמינים בין 10:00 ל־19:00</dd></div>
           <div class="f"><dt>איך</dt><dd>שיעורים אונליין בזום, לכל הארץ</dd></div>
           <div class="f"><dt>מקצוע</dt><dd>מתמטיקה, כיתות ז׳ עד י״ב</dd></div>
           <div class="f"><dt>רמות</dt><dd>3, 4 ו־5 יחידות, כולל הכנה לבגרות</dd></div>
@@ -974,17 +986,52 @@ document.addEventListener("click", function (e) {
   if (a) trackLead();
 });
 
-document.getElementById("lead-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-  trackLead();
+var leadForm = document.getElementById("lead-form");
+function leadText() {
   var name = document.getElementById("f-name").value.trim();
+  var phone = document.getElementById("f-phone").value.trim();
   var grade = document.getElementById("f-grade").value;
   var msg = document.getElementById("f-msg").value.trim();
-  var text = "היי אביב, הגעתי מהאתר.\n" +
-             "שם: " + (name || "לא צוין") + "\n" +
-             "כיתה ורמה: " + grade +
-             (msg ? "\nמה קורה: " + msg : "");
-  window.open("https://wa.me/972544641024?text=" + encodeURIComponent(text), "_blank", "noopener");
+  return "היי אביב, הגעתי מהאתר.\n" +
+         "שם: " + (name || "לא צוין") + "\n" +
+         (phone ? "טלפון: " + phone + "\n" : "") +
+         "כיתה ורמה: " + grade +
+         (msg ? "\nמה קורה: " + msg : "");
+}
+document.getElementById("f-wa").addEventListener("click", function () {
+  trackLead();
+  window.open("https://wa.me/972544641024?text=" + encodeURIComponent(leadText()), "_blank", "noopener");
+});
+leadForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  var status = document.getElementById("f-status");
+  var btn = document.getElementById("f-send");
+  if (leadForm.elements._honey.value) return;
+  btn.disabled = true; btn.textContent = "שולחים…";
+  status.className = "form-note"; status.textContent = "";
+  fetch("https://formsubmit.co/ajax/avivosgruber@gmail.com", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify({
+      _subject: "פנייה חדשה מהאתר: " + (document.getElementById("f-name").value.trim() || "ללא שם"),
+      _template: "table",
+      "שם": document.getElementById("f-name").value.trim(),
+      "טלפון": document.getElementById("f-phone").value.trim(),
+      "כיתה ורמה": document.getElementById("f-grade").value,
+      "מה קורה": document.getElementById("f-msg").value.trim() || "-"
+    })
+  }).then(function (r) { return r.json(); }).then(function (d) {
+    if (d && (d.success === true || d.success === "true")) {
+      trackLead();
+      leadForm.classList.add("sent");
+      status.className = "form-note ok";
+      status.textContent = "תודה! קיבלנו את הפרטים ונחזור אליכם בהקדם.";
+    } else { throw new Error("send"); }
+  }).catch(function () {
+    btn.disabled = false; btn.textContent = "השאירו פרטים ונחזור אליכם";
+    status.className = "form-note err";
+    status.textContent = "משהו השתבש בשליחה. אפשר לשלוח בוואטסאפ או להתקשר ל־054-464-1024.";
+  });
 });
 </script>
 
