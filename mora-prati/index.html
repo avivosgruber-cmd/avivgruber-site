@@ -20,17 +20,18 @@
 <meta property="og:site_name" content="אביב גרובר, בית ספר למתמטיקה">
 <meta property="og:title" content="מתמטיקה עם אביב גרובר">
 <meta property="og:description" content="שיעורים פרטיים במתמטיקה אונליין, כיתות ז׳ עד י״ב. 15 שנות הוראה, 5.0 בגוגל מתוך 43 ביקורות.">
-<meta property="og:url" content="https://avivgruber.co.il/">
+<meta property="og:url" content="https://avivgruber.co.il/mora-prati/">
 <meta property="og:image" content="https://avivgruber.co.il/aviv.jpg">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 55 34'%3E%3Cg fill='none' stroke='%231B7F73'%3E%3Crect x='.5' y='.5' width='54' height='33' stroke-width='1.6' opacity='.45'/%3E%3Cpath d='M0 34A34 34 0 0 1 34 0A21 21 0 0 1 55 21A13 13 0 0 1 42 34A8 8 0 0 1 34 26A5 5 0 0 1 39 21A3 3 0 0 1 42 24' stroke-width='3'/%3E%3C/g%3E%3Ccircle cx='40.6' cy='23.1' r='2.6' fill='%23C98A28'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Assistant:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Assistant:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"></noscript>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Assistant:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 :root{
   --paper:#F9F8F4;
@@ -176,7 +177,6 @@ section[id],#contact{scroll-margin-block-start:118px}
   .secnav .wrap{padding-inline:18px}
   .secnav a{font-size:.98rem;padding:12px 13px}
 }
-}
 
 /* hero */
 .hero{position:relative;overflow:hidden}
@@ -204,6 +204,7 @@ section[id],#contact{scroll-margin-block-start:118px}
 .byline .bt span{font-size:.88rem;color:var(--ink-3)}
 .member .av.photo{padding:0;overflow:hidden;box-shadow:0 0 0 1px var(--rule)}
 .member .av.photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92)}
+.formlink{font-size:.95rem;color:var(--accent-deep);text-underline-offset:3px;margin-block-start:-6px;align-self:flex-start}
 .trustrow{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;font-size:.88rem;color:var(--ink-3);margin-block-start:4px}
 .trustrow span{display:inline-flex;align-items:center;gap:7px}
 .trustrow .tick{color:var(--accent);font-size:1rem;line-height:1}
@@ -384,6 +385,8 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space
 }
 @media (max-width:640px){
   body{font-size:16.5px}
+  .hero .wrap{padding-block-start:26px}
+  .hero-inner{gap:16px}
   .ledger div{padding-inline:3px}
   .ledger b{font-size:1.28rem}
   .ledger span{font-size:.72rem}
@@ -456,19 +459,20 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space
             וואטסאפ
           </a>
         </div>
-        <p class="lede">שלום, אני אביב. אני מלמד מתמטיקה כבר חמש עשרה שנה, לימדתי בהן מאות תלמידים, ולאורך הדרך הקמתי צוות מורים שעובד בשיטה אחת. הרבה מהתלמידים מגיעים אלינו אחרי תקופה שבה איבדו קצת את הביטחון במקצוע, ולפעמים גם את החשק. אצלנו זה עובד אחרת. מדברים בגובה העיניים, שואלים כל שאלה בלי להתבייש, וצוחקים בדרך. מסתבר שכשנעים בשיעור גם לומדים הרבה יותר מהר.</p>
-        <div class="byline">
-          <span class="pic"><img src="/aviv.jpg" alt="אביב גרובר" width="720" height="720" loading="eager"></span>
-          <span class="bt">
-            <b>אביב גרובר</b>
-            <span>מייסד ומנהל מקצועי · פסיכולוג קליני בהתמחות</span>
-          </span>
-        </div>
+        <a class="formlink" href="#contact">או השאירו מספר טלפון, ונחזור אליכם</a>
         <p class="trustrow">
           <span><span class="g">★</span> 43 ביקורות, 5.0 בגוגל</span>
           <span><span class="tick">✓</span> שיחת היכרות ללא התחייבות</span>
           <span><span class="tick">✓</span> מורה קבוע אחד לכל תלמיד</span>
         </p>
+        <p class="lede">שלום, אני אביב. אני מלמד מתמטיקה כבר חמש עשרה שנה, לימדתי בהן מאות תלמידים, ולאורך הדרך הקמתי צוות מורים שעובד בשיטה אחת. הרבה מהתלמידים מגיעים אלינו אחרי תקופה שבה איבדו קצת את הביטחון במקצוע, ולפעמים גם את החשק. אצלנו זה עובד אחרת. מדברים בגובה העיניים, שואלים כל שאלה בלי להתבייש, וצוחקים בדרך. מסתבר שכשנעים בשיעור גם לומדים הרבה יותר מהר.</p>
+        <div class="byline">
+          <span class="pic"><img src="/aviv-200.jpg" alt="אביב גרובר" width="200" height="200" loading="eager"></span>
+          <span class="bt">
+            <b>אביב גרובר</b>
+            <span>מייסד ומנהל מקצועי · פסיכולוג קליני בהתמחות</span>
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -607,7 +611,7 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space
       <div class="team">
         <article class="member">
           <div class="who">
-            <span class="av photo"><img src="/aviv.jpg" alt="אביב גרובר" width="720" height="720" loading="lazy"></span>
+            <span class="av photo"><img src="/aviv-200.jpg" alt="אביב גרובר" width="200" height="200" loading="lazy"></span>
             <span class="nm"><b>אביב גרובר</b><span>מייסד ומנהל מקצועי</span></span>
           </div>
           <p>חמש עשרה שנות הוראה, כיתות ז׳ עד י״ב בכל הרמות. בוגר 5 יחידות מתמטיקה בהצטיינות, פסיכולוג קליני בהתמחות, ובוגר תואר ראשון בפסיכולוגיה ופילוסופיה באוניברסיטת תל אביב. אני בונה את השיטה, מלמד בעצמי, ומכיר כל תלמיד בשם.</p>
